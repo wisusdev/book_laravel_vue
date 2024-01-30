@@ -30,3 +30,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from "vue-router";
+import { routes } from './routes';
+import App from './components/App.vue';
+
+const router = createRouter({
+	history: createWebHistory(),
+	routes,
+});
+
+const app = createApp(App).use(router).mount('#app');
